@@ -44,3 +44,7 @@ gem 'capistrano', group: :development
 
 gem 'mongo_mapper', :git => "git://github.com/mongomapper/mongomapper.git", :tag => "v0.13.0.beta2"
 gem 'bson_ext'
+
+gem "rails-backbone"
+
+gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
