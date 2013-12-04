@@ -11,15 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="input-group field">
+    <span class="input-group-addon">Title</span>
+    <%= f.text_field :title, :class => "form-control" %>
   </div>
   <div class="field">
-    <%= f.label :body %><br>
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#">Write</a></li>
+      <li><a href="#">Preview</a></li>
+    </ul>
+
     <%= f.text_area :body %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-primary" %>
   </div>
 <% end %>
