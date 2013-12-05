@@ -1,0 +1,21 @@
+<form id="<%= form_id %>" name="post">
+
+  <div class="input-group field">
+    <span class="input-group-addon">Title</span>
+    <input type="text" name="title" id="title" class="form-control" value="<%= title %>" >
+  </div>
+
+  <div class="field">
+    <ul class="nav nav-tabs">
+      <li class="active" id="btn_write"><a href="javaScript:void(0)" >Write</a></li>
+      <li id="btn_preview"><a href="javaScript:void(0)">Preview</a></li>
+    </ul>
+
+    <textarea name="body" id="post_body"><%= body %></textarea>
+  </div>
+
+  <div class="actions">
+    <input type="submit" class="btn btn-primary" value="Publish" />
+  </div>
+
+</form>

@@ -4,6 +4,7 @@ class Techblog.Models.Post extends Backbone.Model
   defaults:
     title: null
     body: null
+    page_id: null
 
 class Techblog.Collections.PostsCollection extends Backbone.Collection
   model: Techblog.Models.Post
