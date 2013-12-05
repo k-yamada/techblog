@@ -4,3 +4,9 @@
 
 <%= link_to 'Show', @post %> |
 <%= link_to 'Back', posts_path %>
+
+<script type="text/javascript">
+  $(function() {
+    new Techblog.Views.Posts.EditView({post: <%= @post.to_json.html_safe -%>});
+  });
+</script>
