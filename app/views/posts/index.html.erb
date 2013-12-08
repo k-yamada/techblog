@@ -2,7 +2,9 @@
 
 <script type="text/javascript">
   $(function() {
-    window.router = new Techblog.Routers.PostsRouter({posts: <%= @posts.to_json.html_safe -%>});
+    // window.router = new Techblog.Routers.PostsRouter({posts: <%= @posts.to_json.html_safe -%>});
+    posts = <%= raw render :template => 'posts/index.json.jbuilder' %>;
+    window.router = new Techblog.Routers.PostsRouter({posts: posts});
     Backbone.history.start();
   });
 </script>
