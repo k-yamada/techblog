@@ -1,6 +1,31 @@
-<td><%= title %></td>
-<td><%= body_html %></td>
+<a href="#/<%= id %>">Show
+<a href="#/<%= id %>/edit">Edit
+<a href="#/<%= id %>/destroy" class="destroy">Destroy</a>
 
-<td><a href="#/<%= id %>">Show</td>
-<td><a href="#/<%= id %>/edit">Edit</td>
-<td><a href="#/<%= id %>/destroy" class="destroy">Destroy</a></td>
+<article class="hentry entry js-entry-article date-first autopagerize_page_element chars-400 words-100 markdown entry-odd" id="entry-xxxxxxxxx" data-keyword-campaign="">
+  <div class="entry-inner">
+    <header class="entry-header">
+      <div class="date first">
+        <a href="#" rel="nofollow">
+          <time pubdate="" datetime="2013-11-24T00:00:00Z" title="2013-11-24T00:0:00Z">
+            <span class="date-year">2013</span><span class="hyphen">-</span><span class="date-month">11</span><span class="hyphen">-</span><span class="date-day">24</span>
+          </time>
+        </a>
+      </div>
+      <h1 class="entry-title">
+        <a href="/" class="entry-title-link bookmark"><%= title %></a>
+      </h1>
+
+      <div class="categories no-categories">
+
+      </div>
+    </header>
+    <div class="entry-content">
+      <%= body_html %>
+    </div>
+    <footer class="entry-footer">
+      <div class="hatena-star-container">
+      </div>
+    </footer>
+  </div>
+</article>
