@@ -1,10 +1,10 @@
-<a href="#/<%= id %>">Show
-<a href="#/<%= id %>/edit">Edit
-<a href="#/<%= id %>/destroy" class="destroy">Destroy</a>
-
-<article class="hentry entry js-entry-article date-first autopagerize_page_element chars-400 words-100 markdown entry-odd" id="entry-xxxxxxxxx" data-keyword-campaign="">
+<!--<article class="hentry entry js-entry-article date-first autopagerize_page_element chars-400 words-100 markdown entry-odd" id="entry-xxxxxxxxx" data-keyword-campaign="">-->
   <div class="entry-inner">
     <header class="entry-header">
+      <div class="page-header">
+        <h1 id="template"><%= title %></h1>
+      </div>
+
       <div class="date first">
         <a href="#" rel="nofollow">
           <time pubdate="" datetime="2013-11-24T00:00:00Z" title="2013-11-24T00:0:00Z">
@@ -12,9 +12,6 @@
           </time>
         </a>
       </div>
-      <h1 class="entry-title">
-        <a href="/" class="entry-title-link bookmark"><%= title %></a>
-      </h1>
 
       <div class="categories no-categories">
 
@@ -28,4 +25,7 @@
       </div>
     </footer>
   </div>
-</article>
+
+<a href="#/<%= id %>">Show
+<a href="#/<%= id %>/edit">Edit
+<a href="#/<%= id %>/destroy" class="destroy">Destroy</a>

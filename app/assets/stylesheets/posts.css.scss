@@ -11,3 +11,20 @@
   width: 100%;
   height: 500px;
 }
+
+/*
+article {
+  background: #F8F8F8;
+  padding: 10px;
+  margin: 0 0 20px 0;
+  border: 1px solid #4949A5;
+}
+*/
+
+article:nth-child(even) {
+  /*background: #DDC;*/
+}
+
+article:nth-child(odd) {
+  /*background: #223333;*/
+}

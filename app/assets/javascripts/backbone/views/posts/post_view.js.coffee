@@ -6,7 +6,7 @@ class Techblog.Views.Posts.PostView extends Backbone.View
   events:
     "click .destroy" : "destroy"
 
-  tagName: "div"
+  tagName: "article"
 
   destroy: () ->
     @model.destroy()

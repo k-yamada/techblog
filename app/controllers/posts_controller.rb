@@ -28,6 +28,8 @@ class PostsController < ApplicationController
     @post.page_id = @post._id
     respond_to do |format|
       if @post.save
+        p "==create=="
+        pp @post
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: nil }
       else
