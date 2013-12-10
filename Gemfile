@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.2'
 
 
 # Use SCSS for stylesheets
@@ -49,4 +49,6 @@ gem "rails-backbone"
 
 gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 
-gem 'redcarpet'
+gem 'redcarpet', github: 'vmg/redcarpet'
+
+gem 'google-code-prettify-rails'

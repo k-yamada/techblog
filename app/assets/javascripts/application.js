@@ -19,5 +19,6 @@
 //= require backbone_rails_sync
 //= require backbone_datalink
 //= require phenomena
+//= require google-code-prettify-rails/prettify
 
 //= require_tree .

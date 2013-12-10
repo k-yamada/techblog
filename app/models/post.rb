@@ -8,7 +8,8 @@ class Post
 
   def body_html
     return nil unless @body
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :fenced_code_blocks => true)
+    render   = Redcarpet::Render::HTML.new(:prettify => true)
+    markdown = Redcarpet::Markdown.new(render, :fenced_code_blocks => true)
     markdown.render(body)
   end
 end
