@@ -16,4 +16,5 @@ class Techblog.Views.Posts.PostView extends Backbone.View
 
   render: ->
     $(@el).html(@template(@model.toJSON() ))
+    $(this.el).find("pre").addClass("highlight")
     return this

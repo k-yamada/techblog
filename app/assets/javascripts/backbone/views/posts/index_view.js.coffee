@@ -16,5 +16,4 @@ class Techblog.Views.Posts.IndexView extends Backbone.View
   render: =>
     $(@el).html(@template(posts: @options.posts.toJSON() ))
     @addAll()
-
     return this
