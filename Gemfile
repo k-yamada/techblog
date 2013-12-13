@@ -52,3 +52,6 @@ gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 gem 'redcarpet', github: 'vmg/redcarpet'
 
 gem 'google-code-prettify-rails'
+
+gem 'omniauth'
+gem 'omniauth-openid'
