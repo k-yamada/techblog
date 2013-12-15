@@ -5,6 +5,8 @@ class Techblog.Models.Post extends Backbone.Model
     title: null
     body: null
     page_id: null
+    created_at: null
+    updated_at: null
 
 
 class Techblog.Collections.PostsCollection extends Backbone.Collection

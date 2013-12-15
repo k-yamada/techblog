@@ -58,3 +58,5 @@ gem 'omniauth-openid'
 
 # for importing from lokka
 gem 'sqlite3'
+
+gem 'kaminari'

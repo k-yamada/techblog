@@ -1,5 +1,6 @@
 class Post
   include MongoMapper::Document
+  paginates_per 5
 
   key :title, String
   key :body, String
@@ -12,4 +13,5 @@ class Post
     markdown = Redcarpet::Markdown.new(render, :fenced_code_blocks => true)
     markdown.render(body)
   end
+
 end
