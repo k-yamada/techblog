@@ -4,6 +4,10 @@ class SessionsController < ApplicationController
   def create
     auth = request.env["omniauth.auth"]
     session[:user_info] = auth["info"]
+
+    if Admin.count == 0
+      Admin.create({:email => session[:user_info][:email]})
+    end
     redirect_to root_url, :notice => "Signed in!"
   end
 

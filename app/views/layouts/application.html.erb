@@ -27,7 +27,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a href="../" class="navbar-brand">Title</a>
+          <a href="../" class="navbar-brand"><%= @blog_info[:title] %></a>
         </div>
         <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
           <ul class="nav navbar-nav">
@@ -38,6 +38,7 @@
           <ul class="nav navbar-nav navbar-right">
             <!--<a href="../about">About</a>-->
             <% if current_user %>
+              <li><a href="/admin">Admin</a></li>
               <li><a href="#/new">New Entry</a></li>
               <li><a href="#"><%= current_user.name %></a></li>
               <li><%= link_to "Sign Out", signout_path %></li>
@@ -53,6 +54,21 @@
     <!-- Docs page layout -->
     <div class="bs-header" id="content">
       <div class="container">
+        <h1><%= @blog_info[:title] %></h1>
+        <p><%= @blog_info[:description] %></p>
+        <!--<div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script>var z = document.createElement("script"); z.async = true; z.src = "http://engine.carbonads.com/z/32341/azcarbon_2_1_0_HORIZ"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>-->
+
+        <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div>
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <!-- techblog -->
+          <ins class="adsbygoogle"
+               style="display:inline-block;width:320px;height:100px"
+               data-ad-client="ca-pub-4800068521558938"
+               data-ad-slot="7481760013"></ins>
+          <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div></div>
       </div>
     </div>
 
