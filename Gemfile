@@ -55,3 +55,6 @@ gem 'google-code-prettify-rails'
 
 gem 'omniauth'
 gem 'omniauth-openid'
+
+# for importing from lokka
+gem 'sqlite3'
