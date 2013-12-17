@@ -9,12 +9,14 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *# require_tree .
+ *= require ./themes/cerulean/bootstrap.min.css
  *= require google-code-prettify-rails/prettify
  */
 
 @import "bootstrap";
 
+/*
 body {
   padding-top: 70px;
 }
@@ -38,4 +40,60 @@ article {
   width: 100%;
   -moz-transition: all 1s ease;
   -webkit-transition: all 1s ease;
+}
+*/
+
+body {
+  padding-top: 80px; /* room for fixed nav-bar */
+  background-image: url('http://assets.tumblr.com/images/x.gif');
+}
+
+.hero-unit {
+  padding: 20px 40px;
+}
+
+.hero-unit h1,
+.hero-unit p {
+  line-height: 1.3em;
+}
+
+.post {
+  padding: 20px 0;
+}
+
+.title > h2 {
+  line-height: 1em;
+  margin: 0 0 20px;
+}
+
+.title > h2 > a {
+  vertical-align: top;
+}
+
+.thumbnails,
+.thumbnails > .thumbnail {
+  margin-left: 0;
+}
+
+.entry img {
+  margin: 30px 0;
+}
+
+.author, .date, .tags {
+  margin-bottom: 1em;
+}
+
+footer {
+  padding: 10px 0 40px;
+}
+
+.notes-container ol.notes {
+ margin-top: 2em;
+ margin-bottom: 0;
+ padding-left: 0;
+ list-style: none;
+}
+
+body .one .bsa_it_p {
+    display: none;
 }

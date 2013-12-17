@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Title</title>
+    <%# stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <link href="http://bootswatch.com/cerulean/bootstrap.min.css" rel="stylesheet">
+    <link href="http://bootswatch.com/assets/css/bootswatch.min.css" rel="stylesheet">
+
+    <%= javascript_include_tag "application", "data-turbolinks-track" => false %>
+    <%= csrf_meta_tags %>
+    <!-- Place anything custom after this. -->
+  </head>
+  <body>
+    <a class="sr-only" href="#content">Skip navigation</a>
+
+    <!-- Docs master nav -->
+    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="../" class="navbar-brand"><%= @blog_info[:title] %></a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a href="../">TOP</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <!--<a href="../about">About</a>-->
+            <% if current_user %>
+              <li><a href="/admin">Admin</a></li>
+              <li><a href="#/new">New Entry</a></li>
+              <li><a href="#"><%= current_user.name %></a></li>
+              <li><%= link_to "Sign Out", signout_path %></li>
+            <% else %>
+              <li><%= link_to "Sign in with Google", "/auth/open_id?openid_url=https://www.google.com/accounts/o8/id" %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+
+    <!-- Docs page layout -->
+    <div class="bs-header" id="content">
+      <div class="container">
+        <h1><%= @blog_info[:title] %></h1>
+        <p><%= @blog_info[:description] %></p>
+        <!--<div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script>var z = document.createElement("script"); z.async = true; z.src = "http://engine.carbonads.com/z/32341/azcarbon_2_1_0_HORIZ"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>-->
+
+        <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div>
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <!-- techblog -->
+          <ins class="adsbygoogle"
+               style="display:inline-block;width:320px;height:100px"
+               data-ad-client="ca-pub-4800068521558938"
+               data-ad-slot="7481760013"></ins>
+          <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="container bs-docs-container">
+      <div class="row">
+        <div class="col-md-9" role="main">
+            <!-- Global Bootstrap settings
+  ================================================== -->
+  <div class="bs-docs-section">
+
+    <%= yield %>
+
+    </div>
+  </body>
+</html>
