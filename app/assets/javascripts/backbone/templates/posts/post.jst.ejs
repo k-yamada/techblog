@@ -1,31 +1,35 @@
-<!--<article class="hentry entry js-entry-article date-first autopagerize_page_element chars-400 words-100 markdown entry-odd" id="entry-xxxxxxxxx" data-keyword-campaign="">-->
-  <div class="entry-inner">
-    <header class="entry-header">
-      <div class="page-header">
-        <h1 id="template"><%= title %></h1>
-      </div>
+      <div class="row post text">
+        <div class="col-lg-2">
+          <div class="date">
+              <a href="#"><%= created_at %></a>
+          </div> <!-- .date -->
+          <div class="tweet share-link clearfix">
+            <a href="https://twitter.com/share"
+              class="twitter-share-button"
+              data-url="http://news.bootswatch.com/post/68572130941/fun-with-bootstrap-themes-and-css-transitions"
+              data-text="Fun with Bootstrap themes and CSS transitions"
+              data-via="thomashpark"
+              >Tweet</a>
+          </div>
+        </div> <!-- .span3 -->
 
-      <div class="date first">
-        <a href="#" rel="nofollow">
-          <time pubdate="" datetime="<%= created_at %>" title="<%= created_at %>">
-            <span class="date"><%= created_at %></span>
-          </time>
-        </a>
-      </div>
+        <div class="col-lg-6 entry">
+          <div class="title">
+            <h2><a href="#/<%= id %>"><%= title %></a></h2>
+          </div> <!-- .title -->
+          <div class="POST">
+            <%= body_html %>
+          </div>
+        </div> <!-- .entry -->
+        <div class="col-lg-3 col-lg-offset-1">
+          <div id="bsap_1277971" class="bsarocks bsap_c466df00a3cd5ee8568b5c4983b6bb19"></div>
+        </div> <!-- .span3 -->
+      </div> <!-- .row .post -->
 
-      <div class="categories no-categories">
-
-      </div>
-    </header>
-    <div class="entry-content">
-      <%= body_html %>
-    </div>
-    <footer class="entry-footer">
-      <div class="hatena-star-container">
-      </div>
-    </footer>
-  </div>
-
-<a href="#/<%= id %>">Show
 <a href="#/<%= id %>/edit">Edit
 <a href="#/<%= id %>/destroy" class="destroy">Destroy</a>
+
+
+<br>
+     <hr/>
+<br>
