@@ -4,12 +4,15 @@
               <a href="#"><%= created_at %></a>
           </div> <!-- .date -->
           <div class="tweet share-link clearfix">
+            <a href="http://b.hatena.ne.jp/entry/www.kyamada.com/posts/<%= id %>" class="hatena-bookmark-button" data-hatena-bookmark-title="kyamadaのtechblog" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="en" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
             <a href="https://twitter.com/share"
               class="twitter-share-button"
-              data-url="http://news.bootswatch.com/post/68572130941/fun-with-bootstrap-themes-and-css-transitions"
+              data-url="http://www.kyamada.com/posts/<%= id %>"
               data-text="Fun with Bootstrap themes and CSS transitions"
               data-via="thomashpark"
               >Tweet</a>
+
           </div>
         </div> <!-- .span3 -->
 
@@ -26,9 +29,10 @@
         </div> <!-- .span3 -->
       </div> <!-- .row .post -->
 
+<% if (TB.email) { %>
 <a href="#/<%= id %>/edit">Edit
 <a href="#/<%= id %>/destroy" class="destroy">Destroy</a>
-
+<% } %>
 
 <br>
      <hr/>
