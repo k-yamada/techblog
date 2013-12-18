@@ -47,7 +47,7 @@ gem 'bson_ext'
 
 gem "rails-backbone"
 
-gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
+# gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 
 gem 'redcarpet', github: 'vmg/redcarpet'
 

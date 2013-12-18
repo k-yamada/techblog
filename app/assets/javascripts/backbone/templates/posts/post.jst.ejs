@@ -1,39 +1,38 @@
-      <div class="row post text">
-        <div class="col-lg-2">
-          <div class="date">
-              <a href="#"><%= created_at %></a>
-          </div> <!-- .date -->
-          <div class="tweet share-link clearfix">
-            <a href="http://b.hatena.ne.jp/entry/www.kyamada.com/posts/<%= id %>" class="hatena-bookmark-button" data-hatena-bookmark-title="kyamadaのtechblog" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="en" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+<div class="row post text">
+  <div class="col-lg-2">
+    <div class="date">
+        <a href="#"><%= created_at %></a>
+    </div> <!-- .date -->
+    <div class="tweet share-link clearfix">
+      <a href="http://b.hatena.ne.jp/entry/www.kyamada.com/posts/<%= id %>" class="hatena-bookmark-button" data-hatena-bookmark-title="kyamadaのtechblog" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="en" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
 
-            <a href="https://twitter.com/share"
-              class="twitter-share-button"
-              data-url="http://www.kyamada.com/posts/<%= id %>"
-              data-text="Fun with Bootstrap themes and CSS transitions"
-              data-via="thomashpark"
-              >Tweet</a>
+      <a href="https://twitter.com/share"
+        class="twitter-share-button"
+        data-url="http://www.kyamada.com/posts/<%= id %>"
+        data-text="Fun with Bootstrap themes and CSS transitions"
+        data-via="thomashpark"
+        >Tweet</a>
 
-          </div>
-        </div> <!-- .span3 -->
+    </div>
+  </div> <!-- .span3 -->
 
-        <div class="col-lg-6 entry">
-          <div class="title">
-            <h2><a href="#/<%= id %>"><%= title %></a></h2>
-          </div> <!-- .title -->
-          <div class="POST">
-            <%= body_html %>
-          </div>
-        </div> <!-- .entry -->
-        <div class="col-lg-3 col-lg-offset-1">
-          <div id="bsap_1277971" class="bsarocks bsap_c466df00a3cd5ee8568b5c4983b6bb19"></div>
-        </div> <!-- .span3 -->
-      </div> <!-- .row .post -->
+  <div class="col-lg-6 entry">
+    <div class="title">
+      <h2><a href="#/<%= id %>"><%= title %></a></h2>
+    </div> <!-- .title -->
 
-<% if (TB.email) { %>
-<a href="#/<%= id %>/edit">Edit
-<a href="#/<%= id %>/destroy" class="destroy">Destroy</a>
-<% } %>
+    <% if (TB.email) { %>
+    <a href="#/<%= id %>/edit">Edit
+    <a href="#/<%= id %>/destroy" class="destroy">Destroy</a>
+    <% } %>
 
-<br>
+    <div class="POST">
+      <%= body_html %>
+    </div>
+  </div> <!-- .entry -->
+  <div class="col-lg-3 col-lg-offset-1">
+    <div id="bsap_1277971" class="bsarocks bsap_c466df00a3cd5ee8568b5c4983b6bb19"></div>
+  </div> <!-- .span3 -->
+</div> <!-- .row .post -->
+
      <hr/>
-<br>

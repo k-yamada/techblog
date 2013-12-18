@@ -9,39 +9,10 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *# require_tree .
+ *= require_tree .
  *= require ./themes/cerulean/bootstrap.min.css
  *= require google-code-prettify-rails/prettify
  */
-
-@import "bootstrap";
-
-/*
-body {
-  padding-top: 70px;
-}
-
-footer {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-.articles {
-  text-align: left;
-}
-
-article {
-  display: block;
-}
-
-.entry {
-  margin: 0 0 48px 0;
-  position: relative;
-  width: 100%;
-  -moz-transition: all 1s ease;
-  -webkit-transition: all 1s ease;
-}
-*/
 
 body {
   padding-top: 80px; /* room for fixed nav-bar */
@@ -96,4 +67,47 @@ footer {
 
 body .one .bsa_it_p {
     display: none;
+}
+
+.POST {
+  h1, h2, h3, h4, h5, h6 {
+    color: black;
+  }
+
+  h1 {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin: 1.3em 0 .7em 0;
+    background-color: rgba(0,0,0,0.1);
+    padding: 3px 10px;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+    line-height: 30px;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  h2 {
+    margin: 1.3em 0 .7em 0;
+    border-bottom: solid 1px #d9d9d9;
+    line-height: 28px;
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  h4 {
+    font-size: 18px;
+  }
+
+  h5 {
+    font-size: 16px;
+  }
+
+  h6 {
+    font-size: 14px;
+  }
 }
