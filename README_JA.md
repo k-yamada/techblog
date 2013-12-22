@@ -1,6 +1,23 @@
 
+デプロイ
+-------------
 
-# 別のブログサービスのデータをインポートする
+## 環境変数をセット
+
+    $ vim ~/.bashrc
+
+    export TECHBLOG_DEPLOY_USER=<user_name>
+    export TECHBLOG_DEPLOY_SERVER=<server_addr>
+
+    $ source ~/.bashrc
+
+## capistranoでデプロイ
+
+    $ bundle exec cap production deploy
+
+
+別のブログサービスのデータをインポートする
+----------
 
 ## Lokkaからインポート
 

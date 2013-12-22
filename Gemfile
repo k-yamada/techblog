@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -39,6 +38,10 @@ gem 'unicorn'
 # Use Capistrano for deployment
 gem 'capistrano', group: :development
 
+#group :development do
+#  gem 'capistrano-unicorn', :require => false, :git => 'git://github.com/sosedoff/capistrano-unicorn.git'
+#end
+
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
@@ -60,3 +63,5 @@ gem 'omniauth-openid'
 gem 'sqlite3'
 
 gem 'kaminari'
+
+gem 'thor'

@@ -9,9 +9,9 @@ class Techblog.Views.Posts.PostView extends Backbone.View
   tagName: "article"
 
   destroy: () ->
-    @model.destroy()
-    this.remove()
-
+    if confirm "OK?"
+      @model.destroy()
+      this.remove()
     return false
 
   render: ->
