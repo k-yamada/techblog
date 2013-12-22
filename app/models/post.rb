@@ -14,4 +14,8 @@ class Post
     markdown.render(body)
   end
 
+  def created_at_fmt
+    created_at.strftime("%e %B %Y")
+  end
+
 end
