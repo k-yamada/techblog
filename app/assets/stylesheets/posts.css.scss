@@ -28,3 +28,13 @@ article:nth-child(even) {
 article:nth-child(odd) {
   /*background: #223333;*/
 }
+
+.adsense div:first-child {
+  display: block;
+  padding: 15px;
+  border: 1px solid #e1e1e1;
+  background: #f9f9f9;
+  font-family: helvetica,arial,sans-serif;
+  line-height: 100%;
+  position: relative;
+}
