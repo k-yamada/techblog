@@ -11,11 +11,10 @@ class Post
     return nil unless @body
     render   = Redcarpet::Render::HTML.new(:prettify => true)
     markdown = Redcarpet::Markdown.new(render, :fenced_code_blocks => true)
-    markdown.render(body)
+    markdown.render(@body)
   end
 
   def created_at_fmt
     created_at.strftime("%e %B %Y")
   end
-
 end

@@ -4,11 +4,12 @@ class Techblog.Routers.PostsRouter extends Backbone.Router
     @posts.reset options.posts
 
   routes:
-    "new"      : "newPost"
-    "index"    : "index"
-    ":id/edit" : "edit"
-    ":id"      : "show"
-    ".*"        : "index"
+    "new"         : "newPost"
+    "index"       : "index"
+    ":id/edit"    : "edit"
+    ":id/destroy" : "destroy"
+    ":id"         : "show"
+    ".*"          : "index"
 
   newPost: ->
     @view = new Techblog.Views.Posts.NewView(collection: @posts)
@@ -31,3 +32,9 @@ class Techblog.Routers.PostsRouter extends Backbone.Router
 
     @view = new Techblog.Views.Posts.EditView(model: post)
     $("#posts").html(@view.render().el)
+
+  destroy: (id) ->
+    if confirm "OK?"
+      post = @posts.get(id)
+      @posts.remove(post)
+      @index()

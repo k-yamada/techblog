@@ -1,7 +1,7 @@
 Techblog.Views.Posts ||= {}
 
 class Techblog.Views.Posts.ShowView extends Backbone.View
-  template: JST["backbone/templates/posts/show"]
+  template: JST["backbone/templates/posts/post"]
 
   render: ->
     $(@el).html(@template(@model.toJSON() ))
