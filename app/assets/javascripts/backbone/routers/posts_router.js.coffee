@@ -17,14 +17,14 @@ class Techblog.Routers.PostsRouter extends Backbone.Router
   index: ->
     @view = new Techblog.Views.Posts.IndexView(posts: @posts)
     $("#posts").html(@view.render().el)
-    prettyPrint()
+    TB.Util.setStyle()
 
   show: (id) ->
     post = @posts.get(id)
 
     @view = new Techblog.Views.Posts.ShowView(model: post)
     $("#posts").html(@view.render().el)
-    prettyPrint()
+    TB.Util.setStyle()
 
   edit: (id) ->
     post = @posts.get(id)

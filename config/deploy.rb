@@ -23,8 +23,8 @@ namespace :deploy do
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       execute "echo $PATH"
-      execute "cd #{release_path} && bundle install"
-      execute "cd #{release_path} && bundle exec thor unicorn:restart"
+      #execute "cd #{release_path} && bundle install"
+      #execute "cd #{release_path} && bundle exec thor unicorn:restart"
       # Your restart mechanism here, for example:
       # execute :touch, release_path.join('tmp/restart.txt')
     end
