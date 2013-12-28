@@ -22,6 +22,10 @@ set :rbenv_roles, :all # default value
 
 set :rails_env, 'production'
 
+set :default_env, {
+  'RAILS_ENV' => 'production'
+}
+
 set :keep_releases, 5
 
 namespace :deploy do
