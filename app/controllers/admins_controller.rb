@@ -17,6 +17,7 @@ class AdminsController < ApplicationController
   # GET /admins.json
   def index
     @admins = Admin.all
+    @setting = Setting.get_data
   end
 
   # GET /admins/1
@@ -40,8 +41,8 @@ class AdminsController < ApplicationController
 
     respond_to do |format|
       if @admin.save
-        format.html { redirect_to @admin, notice: 'Admin was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @admin }
+        format.html { redirect_to '/admin', notice: 'Admin was successfully created.' }
+        format.json { render action: 'index', status: :created, location: @admin }
       else
         format.html { render action: 'new' }
         format.json { render json: @admin.errors, status: :unprocessable_entity }
@@ -81,6 +82,6 @@ class AdminsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_params
-      params.require(:admin).permit(:title, :description, :language)
+      params.require(:admin).permit(:email)
     end
 end

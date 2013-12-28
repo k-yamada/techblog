@@ -1,5 +1,7 @@
 Techblog::Application.routes.draw do
 
+  resources :settings
+
   resources :admin, :controller => :admins
   resources :admins
 

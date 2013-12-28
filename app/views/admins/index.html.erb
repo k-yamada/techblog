@@ -1,11 +1,9 @@
-<h1>Listing admins</h1>
+<h2>Admins</h2>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Language</th>
+      <th>email</th>
       <th></th>
       <th></th>
       <th></th>
@@ -15,12 +13,11 @@
   <tbody>
     <% @admins.each do |admin| %>
       <tr>
-        <td><%= admin.title %></td>
-        <td><%= admin.description %></td>
-        <td><%= admin.language %></td>
-        <td><%= link_to 'Show', admin %></td>
+        <td><%= admin.email %></td>
         <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
+        <% if @admins.length > 1 %>
         <td><%= link_to 'Destroy', admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -29,3 +26,8 @@
 <br>
 
 <%= link_to 'New Admin', new_admin_path %>
+
+
+<h2>Settings</h2>
+
+<%= render 'settings/form' %>

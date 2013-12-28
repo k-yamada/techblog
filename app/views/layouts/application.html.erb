@@ -40,7 +40,7 @@
   <link rel="apple-touch-icon" href="http://24.media.tumblr.com/avatar_47075fa15a0d_128.png">
   <link rel="alternate" type="application/rss+xml" href="http://news.bootswatch.com/rss">
 
-  <title><%= @blog_info[:title] %></title>
+  <title><%= @setting[:title] %></title>
 
   <!-- ======== STYLES ======== -->
 
@@ -126,7 +126,7 @@
     <div class="navbar navbar-default navbar-fixed-top ">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="../"><%= @blog_info[:title] %></a>
+          <a class="navbar-brand" href="../"><%= @setting[:title] %></a>
 
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
             <span class="icon-bar"></span>
@@ -161,23 +161,7 @@
     <%= yield %>
   </div>
 
-
-  <script type="text/javascript">
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-23019901-1']);
-    _gaq.push(['_setDomainName', "bootswatch.com"]);
-    _gaq.push(['_setAllowLinker', true]);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-  </script>
-
+  <%= @setting[:ga_tracking_code].html_safe %>
 
   <!-- ======== SCRIPTS ======== -->
 
