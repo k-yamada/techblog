@@ -44,7 +44,12 @@ class Unicorn < Thor
   private
 
   def unicorn_pid
-    `cat #{ROOT}/tmp/pids/unicorn.pid`
+    path = "#{ROOT}/tmp/pids/unicorn.pid"
+    if File.exists? path
+      `cat #{ROOT}/tmp/pids/unicorn.pid`
+    else
+      false
+    end
   end
 
   def unicorn_old_pid

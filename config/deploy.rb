@@ -20,18 +20,24 @@ set :rbenv_roles, :all # default value
 # set :linked_files, %w{config/database.yml}
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
+set :rails_env, 'production'
+
 set :default_env, {
   'PATH' => "~/.rbenv/shims:~/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$PATH",
+  'RAILS_ENV' => 'production'
 }
-# set :keep_releases, 5
+set :keep_releases, 5
 
 namespace :deploy do
 
   desc 'Restart application'
   task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
+    on roles(:web), in: :sequence, wait: 5 do
       within release_path do
-        execute :bundle, :install, '--deployment'
+        #execute :bundle, :install, '--deployment'
+        #execute "bundle exec thor unicorn:restart"
+        #execute :bundle, :exec, "thor unicorn:restart"
+        execute :bundle, "exec thor unicorn:restart"
         #execute :rake, 'assets:precompile'
         #execute :touch, 'tmp/restart.txt'
       end

@@ -39,6 +39,7 @@ gem 'unicorn'
 gem 'capistrano',  '~> 3.0', group: :development
 #gem 'capistrano',  :git => "https://github.com/capistrano/capistrano.git", group: :development
 gem 'capistrano-rbenv', '~> 2.0', group: :development
+gem 'capistrano-rails', '~> 1.1.0'
 
 #group :development do
 #  gem 'capistrano-unicorn', :require => false, :git => 'git://github.com/sosedoff/capistrano-unicorn.git'
