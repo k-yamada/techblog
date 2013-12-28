@@ -36,7 +36,9 @@ end
 gem 'unicorn'
 
 # Use Capistrano for deployment
-gem 'capistrano', group: :development
+gem 'capistrano',  '~> 3.0', group: :development
+#gem 'capistrano',  :git => "https://github.com/capistrano/capistrano.git", group: :development
+gem 'capistrano-rbenv', '~> 2.0', group: :development
 
 #group :development do
 #  gem 'capistrano-unicorn', :require => false, :git => 'git://github.com/sosedoff/capistrano-unicorn.git'
