@@ -22,10 +22,6 @@ set :rbenv_roles, :all # default value
 
 set :rails_env, 'production'
 
-set :default_env, {
-  'PATH' => "~/.rbenv/shims:~/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$PATH",
-  'RAILS_ENV' => 'production'
-}
 set :keep_releases, 5
 
 namespace :deploy do
@@ -34,22 +30,9 @@ namespace :deploy do
   task :restart do
     on roles(:web), in: :sequence, wait: 5 do
       within release_path do
-        #execute :bundle, :install, '--deployment'
-        #execute "bundle exec thor unicorn:restart"
-        #execute :bundle, :exec, "thor unicorn:restart"
         execute :bundle, "exec thor unicorn:restart"
-        #execute :rake, 'assets:precompile'
         #execute :touch, 'tmp/restart.txt'
       end
-
-      #execute "echo $PATH"
-      #execute "cd #{release_path} && bundle install"
-      p "=========="
-      p rbenv_prefix
-      p "=========="
-      # Your restart mechanism here, for example:
-      # execute :touch, release_path.join('tmp/restart.txt')
-      #execute "cd #{release_path} && bundle exec thor unicorn:restart"
     end
   end
 

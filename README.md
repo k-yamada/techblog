@@ -41,6 +41,12 @@ $ source ~/.bashrc
 $ bundle exec cap production deploy
 ~~~
 
+* nginx conf sample
+
+~~~
+config/nginx_sample.conf
+~~~
+
 ## Import data from other blog service
 
 ### Import from Lokka
