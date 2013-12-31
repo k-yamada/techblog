@@ -66,6 +66,6 @@ class Unicorn < Thor
 
   def exec_cmd(env={}, cmd)
     p cmd
-    exec(env, cmd)
+    system(env, cmd)
   end
 end
