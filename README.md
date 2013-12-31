@@ -39,6 +39,8 @@ $ source ~/.bashrc
 
 ~~~
 $ bundle exec cap production deploy
+// restart
+$ bundle exec cap production deploy:restart
 ~~~
 
 * nginx conf sample
@@ -52,5 +54,5 @@ config/nginx_sample.conf
 ### Import from Lokka
 
 ~~~
-$ LOKKA_DB=/path/to/lokka.sqlite3 rake import:from_lokka
+$ RAILS_ENV=production LOKKA_DB=/path/to/lokka.sqlite3 rake import:from_lokka
 ~~~
