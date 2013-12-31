@@ -39,8 +39,6 @@ $ source ~/.bashrc
 
 ~~~
 $ bundle exec cap production deploy
-// restart
-$ bundle exec cap production deploy:restart
 ~~~
 
 * nginx conf sample

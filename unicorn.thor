@@ -14,6 +14,7 @@ class Unicorn < Thor
 
   desc "start", 'unicorn start'
   def start
+    ENV['RAILS_ENV'] = "development" unless ENV['RAILS_ENV']
     # see: http://blog.twiwt.org/e/2e6270
     exec_cmd({"BUNDLE_GEMFILE"=>"#{ROOT}/Gemfile"}, "bundle exec unicorn -c config/unicorn.rb -E #{ENV['RAILS_ENV']} -D")
   end
@@ -28,7 +29,7 @@ class Unicorn < Thor
   def restart
     if unicorn_pid
       send_signal_to_unicorn(unicorn_pid,     :USR2)
-      sleep 20
+      sleep 5
       send_signal_to_unicorn(unicorn_old_pid, :WINCH)
       send_signal_to_unicorn(unicorn_old_pid, :QUIT)
     else
@@ -44,16 +45,16 @@ class Unicorn < Thor
   private
 
   def unicorn_pid
-    path = "#{ROOT}/tmp/pids/unicorn.pid"
+    path = "/tmp/techblog.pid"
     if File.exists? path
-      `cat #{ROOT}/tmp/pids/unicorn.pid`
+      `cat /tmp/techblog.pid`.chomp
     else
       false
     end
   end
 
   def unicorn_old_pid
-    `cat #{ROOT}/tmp/pids/unicorn.pid.oldbin`
+    `cat /tmp/techblog.pid.oldbin`.chomp
   end
 
   def send_signal_to_unicorn(pid, signal, failed_message='Not running.')
