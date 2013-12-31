@@ -1,5 +1,6 @@
 class Post
   include MongoMapper::Document
+  include ActsAsMongoTaggable
   paginates_per 5
 
   key :title, String

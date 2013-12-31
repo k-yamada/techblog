@@ -1,8 +1,7 @@
 <form id="<%= form_id %>" name="post">
 
   <div class="input-group field">
-    <span class="input-group-addon">Title</span>
-    <input type="text" name="title" id="title" class="form-control" value="<%= title %>" >
+    <input type="text" name="title" id="title" class="form-control" placeholder="Title" value="<%= title %>" >
   </div>
 
   <div class="field" tabindex="1">
@@ -12,6 +11,10 @@
     </ul>
 
     <textarea name="body" cols="50" rows="15" id="post_body"><%= body %></textarea>
+  </div>
+
+  <div class="input-group field">
+    <input type="text" name="tags" id="tags" class="form-control" placeholder="Tags (ex: rails, blog)" value="<%= tags.join(", ") %>" >
   </div>
 
   <div class="actions">

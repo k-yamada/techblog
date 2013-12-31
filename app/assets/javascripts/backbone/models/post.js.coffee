@@ -7,6 +7,7 @@ class Techblog.Models.Post extends Backbone.Model
     page_id: null
     created_at: null
     updated_at: null
+    tags: []
 
 
 class Techblog.Collections.PostsCollection extends Backbone.Collection

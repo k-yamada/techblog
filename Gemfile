@@ -68,3 +68,5 @@ gem 'sqlite3'
 gem 'kaminari'
 
 gem 'thor'
+
+gem 'acts_as_mongo_taggable'

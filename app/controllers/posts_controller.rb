@@ -1,11 +1,21 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_tag_cloud, only: [:index, :tag]
 
   # GET /posts
   # GET /posts.json
   def index
-    # @posts = Post.all
     @posts = Post.order('created_at DESC').page params[:page]
+    @posts
+  end
+
+  def tag
+    @posts = Post.where_with_tag(params['tag']).order('created_at DESC').page params[:page]
+    render :template => "posts/index"
+  end
+
+  def set_tag_cloud
+    @tag_cloud = Post.all_tags_with_counts
   end
 
   # GET /posts/1
@@ -41,6 +51,8 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    @post.delete_all_tags
+    @post.tag(post_params[:tags], current_user)
     respond_to do |format|
       if @post.set(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -70,6 +82,9 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body)
+      if params["post"]["tags"].class == Array
+        params["post"]["tags"] = params["post"]["tags"].join(',')
+      end
+      params.require(:post).permit(:title, :body, :tags)
     end
 end
