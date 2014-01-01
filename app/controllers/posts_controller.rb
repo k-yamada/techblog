@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   def index
     if params["keyword"]
       key = params["keyword"]
-      @posts = Post.where(:$or => [{:title => /#{key}/}, {:body => /#{key}/}])
+      @posts = Post.where(:$or => [{:title => /#{key}/i}, {:body => /#{key}/i}])
     else
       @posts = Post.where()
     end
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
     @post.page_id = @post._id
     respond_to do |format|
       if @post.save
-        @post.tag(post_params[:tags], current_user)
+        @post.tag(post_params[:tags], current_user) if post_params[:tags]
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: nil }
       else
