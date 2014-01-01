@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :set_tag_cloud, only: [:index, :tag]
+  before_action :set_tag_cloud, only: [:index, :tag, :show]
 
   # GET /posts
   # GET /posts.json
@@ -39,6 +39,7 @@ class PostsController < ApplicationController
     @post.page_id = @post._id
     respond_to do |format|
       if @post.save
+        @post.tag(post_params[:tags], current_user)
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: nil }
       else
@@ -68,6 +69,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1.json
   def destroy
     @post.destroy
+    @post.delete_all_tags
     respond_to do |format|
       format.html { redirect_to posts_url }
       format.json { head :no_content }

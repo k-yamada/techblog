@@ -1,17 +1,3 @@
-<div id="tag_cloud">
-  <%
-    @tag_cloud[0..30].each_with_index do |tag, i|
-      css = "tag4"
-      case i
-      when 0..4   then css = "tag1"
-      when 5..9   then css = "tag2"
-      when 10..14 then css = "tag3"
-      end
-   %>
-   <%= link_to "#{tag[0]}(#{tag[1]})", "/posts/tag/#{tag[0]}", :class => css %>
-  <% end %>
-</div>
-
 <div id="posts"></div>
 
 <script type="text/javascript">

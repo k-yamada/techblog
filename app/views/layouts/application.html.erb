@@ -158,7 +158,39 @@
   </header>
 
   <div class="container">
-    <%= yield %>
+    <div class="row">
+      <div class="col-sm-8">
+        <%= yield %>
+      </div>
+      <div class="col-sm-4 sidebar">
+
+        <div>
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <ins class="adsbygoogle"
+               style="display:inline-block;width:320px;height:100px"
+               data-ad-client="ca-pub-4800068521558938"
+               data-ad-slot="7481760013"></ins>
+          <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+
+        <h3>Tag</h3>
+        <div id="tag_cloud">
+          <%
+            @tag_cloud[0..30].each_with_index do |tag, i|
+              css = "tag4"
+              case i
+              when 0..4   then css = "tag1"
+              when 5..9   then css = "tag2"
+              when 10..14 then css = "tag3"
+              end
+           %>
+           <%= link_to "#{tag[0]}(#{tag[1]})", "/posts/tag/#{tag[0]}", :class => css %>
+          <% end %>
+        </div>
+      </div><!-- sidebar -->
+    </div>
   </div>
 
   <%= @setting[:ga_tracking_code].html_safe %>

@@ -1,5 +1,5 @@
-<div class="row post text">
-  <div class="col-lg-2">
+<div class="post text">
+  <div class="">
     <div class="date">
         <a href="#"><%= created_at_fmt %></a>
     </div> <!-- .date -->
@@ -16,27 +16,28 @@
     </div>
   </div> <!-- .span3 -->
 
-  <div class="col-lg-6 entry">
+  <div class="entry">
     <div class="title">
       <h2><a href="#/<%= id %>"><%= title %></a></h2>
     </div> <!-- .title -->
 
     <% if (TB.email) { %>
-    <a href="#/<%= id %>/edit">Edit
-    <a href="#/<%= id %>/destroy" class="destroy">Destroy</a>
+      <div style="text-align:right">
+        <a class="btn btn-xs btn-primary" href="#/<%= id %>/edit">Edit</a>
+        <a class="btn btn-xs btn-primary" href="#/<%= id %>/destroy" class="destroy">Destroy</a>
+      </div>
     <% } %>
 
     <div>
-      <%= tags %>
+      <% for (i = 0; i < tags.length; i++) { %>
+        <a href='/posts/tag/<%= tags[i] %>'><%= tags[i] %></a>
+      <% } %>
     </div>
 
     <div class="POST">
       <%= body_html %>
     </div>
   </div> <!-- .entry -->
-  <div class="col-lg-3 col-lg-offset-1">
-    <div class="adsense-wrapper"></div>
-  </div> <!-- .span3 -->
 </div> <!-- .row .post -->
 
 <hr/>
