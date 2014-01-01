@@ -39,3 +39,10 @@ article:nth-child(odd) {
   position: relative;
   width: 350px;
 }
+
+.entry .title {
+  h2 {
+    margin: 0;
+    color: black;
+  }
+}

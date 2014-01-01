@@ -5,15 +5,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- TUMBLR APPEARANCE OPTIONS -->
-  <meta name="if:Include Like Button" content="0">
-  <meta name="if:Include Tweet Button" content="0">
-  <meta name="if:Show Description On Index" content="1">
-  <meta name="if:Show Link To Archive" content="1">
-  <meta name="if:Show Link To RSS" content="0">
-  <meta name="text:Bootswatch Theme" content="default"/>
-  <meta name="if:Use Alternate Navbar" content="0">
-
   <meta name="image:Background" content="">
 
   <meta name="text:Disqus Shortname" content="">
@@ -24,12 +15,9 @@
   <!-- END TUMBLR APPEARANCE OPTIONS -->
 
   <script type="text/javascript">
-    window.TB = {};
-    TB.email = null;
-    <% if current_user %>
-    TB.email = "<%= current_user.email %>";
-    <% end %>
   </script>
+
+  <%# current_setting.ga_tracking_code.html_safe %>
 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="description" content="">
@@ -85,43 +73,10 @@
       <div class="col-sm-8">
         <%= yield %>
       </div>
-
-      <div class="col-sm-4 sidebar">
-        <div>
-          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          <ins class="adsbygoogle"
-               style="display:inline-block;width:320px;height:100px"
-               data-ad-client="ca-pub-4800068521558938"
-               data-ad-slot="7481760013"></ins>
-          <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
-        </div>
-
-        <h3>Tag</h3>
-        <div id="tag_cloud">
-          <%
-            @tag_cloud[0..30].each_with_index do |tag, i|
-              css = "tag4"
-              case i
-              when 0..4   then css = "tag1"
-              when 5..9   then css = "tag2"
-              when 10..14 then css = "tag3"
-              end
-           %>
-           <%= link_to "#{tag[0]}(#{tag[1]})", "/posts/tag/#{tag[0]}", :class => css %>
-          <% end %>
-        </div>
-      </div><!-- sidebar -->
     </div>
   </div>
 
-  <%= current_setting[:ga_tracking_code].html_safe %>
 
-  <!-- ======== SCRIPTS ======== -->
-
-  <!-- twitter -->
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
   <footer>
     <p style="text-align:center">Powered by <a href="https://github.com/k-yamada/techblog" target="_blank">TechBlog</a>.</p>

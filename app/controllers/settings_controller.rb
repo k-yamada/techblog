@@ -1,6 +1,8 @@
 class SettingsController < ApplicationController
   before_action :set_setting, only: [:show, :edit, :update, :destroy]
 
+  layout 'admin'
+
   # GET /settings
   # GET /settings.json
   def index
@@ -40,6 +42,9 @@ class SettingsController < ApplicationController
   # PATCH/PUT /settings/1
   # PATCH/PUT /settings/1.json
   def update
+    #redirect_to :controller => 'admins', :action => 'index'
+    #redirect_to '/admins'
+
     respond_to do |format|
       if @setting.set(setting_params)
         format.html { redirect_to @setting, notice: 'Setting was successfully updated.' }
@@ -64,6 +69,7 @@ class SettingsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_setting
+      p "==set_setting"
       @setting = Setting.find(params[:id])
     end
 

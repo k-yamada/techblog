@@ -21,18 +21,19 @@
       <h2><a href="#/<%= id %>"><%= title %></a></h2>
     </div> <!-- .title -->
 
+    <div class="tags">
+      <% for (i = 0; i < tags.length; i++) { %>
+        <a href='/posts/tag/<%= tags[i] %>'><%= tags[i] %></a>
+      <% } %>
+    </div>
+
+
     <% if (TB.email) { %>
       <div style="text-align:right">
         <a href="#/<%= id %>/edit">Edit</a>
         <a href="#/<%= id %>/destroy" class="destroy">Destroy</a>
       </div>
     <% } %>
-
-    <div>
-      <% for (i = 0; i < tags.length; i++) { %>
-        <a href='/posts/tag/<%= tags[i] %>'><%= tags[i] %></a>
-      <% } %>
-    </div>
 
     <div class="POST">
       <%= body_html %>

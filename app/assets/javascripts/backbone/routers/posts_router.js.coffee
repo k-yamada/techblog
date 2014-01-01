@@ -34,7 +34,7 @@ class Techblog.Routers.PostsRouter extends Backbone.Router
     $("#posts").html(@view.render().el)
 
   destroy: (id) ->
-    if confirm "OK?"
+    if confirm "Are you sure?"
       post = @posts.get(id)
       @posts.remove(post)
       @index()

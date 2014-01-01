@@ -1,10 +1,11 @@
 <form id="<%= form_id %>" name="post">
 
-  <div class="input-group field">
+  <div class="input-group form-group field">
+    <span class="input-group-addon">Title</span>
     <input type="text" name="title" id="title" class="form-control" placeholder="Title" value="<%= title %>" >
   </div>
 
-  <div class="field" tabindex="1">
+  <div class="form-group field" tabindex="1">
     <ul class="nav nav-tabs">
       <li class="active" id="btn_write"><a href="javaScript:void(0)" tabindex="1">Write</a></li>
       <li id="btn_preview"><a href="javaScript:void(0)" tabindex="1">Preview</a></li>
@@ -13,8 +14,9 @@
     <textarea name="body" cols="50" rows="15" id="post_body"><%= body %></textarea>
   </div>
 
-  <div class="input-group field">
-    <input type="text" name="tags" id="tags" class="form-control" placeholder="Tags (ex: rails, blog)" value="<%= tags %>" >
+  <div class="form-group input-group field">
+    <span class="input-group-addon">Tags</span>
+    <input type="text" name="tags" id="tags" class="form-control" placeholder="rails, ruby" value="<%= tags %>" >
   </div>
 
   <div class="actions">

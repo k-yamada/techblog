@@ -1,4 +1,5 @@
-<%= form_for(@setting) do |f| %>
+<%= form_for @setting, :html => {'role' => "form"} do |f| %>
+
   <% if @setting.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@setting.errors.count, "error") %> prohibited this setting from being saved:</h2>
@@ -11,27 +12,27 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group field">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :class => "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group field">
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, :class => "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group field">
     <%= f.label :language %><br>
-    <%= f.text_field :language %>
+    <%= f.text_field :language, :class => "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group field">
     <%= f.label :google_analytics_tracking_code %><br>
-    <%= f.text_area :ga_tracking_code, :size => "100x18"  %>
+    <%= f.text_area :ga_tracking_code, :size => "100x15", :class => "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group field">
     <%= f.label :github_id %><br>
-    <%= f.text_field :github_id %>
+    <%= f.text_field :github_id, :class => "form-control" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-primary" %>
   </div>
 <% end %>

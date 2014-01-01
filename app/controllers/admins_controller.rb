@@ -1,6 +1,9 @@
 class AdminsController < ApplicationController
+  before_filter :set_admin_view
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_filter
+
+  layout 'admin'
 
   def authenticate_filter
     unless current_user
@@ -16,7 +19,7 @@ class AdminsController < ApplicationController
   # GET /admins
   # GET /admins.json
   def index
-    @admins = Admin.all
+    @admins  = Admin.all
     @setting = Setting.get_data
   end
 
