@@ -70,3 +70,5 @@ gem 'kaminari'
 gem 'thor'
 
 gem 'acts_as_mongo_taggable'
+
+gem 'font-awesome-rails'
