@@ -59,6 +59,7 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
+            <li><a href="#"></a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <!--<a href="../about">About</a>-->
@@ -98,8 +99,14 @@
           </script>
         </div>
 
+        <h3>Search</h3>
+
+        <form action="/posts" method="get" accept-charset="UTF-8" class="search_program">
+          <input type="text" name="keyword" placeholder="Search this Blog" class="form-control"></input>
+        </form>
+
         <h3>Profile</h3>
-        <% if current_setting.github_id %>
+        <% unless current_setting.github_id.blank? %>
         <a href="https://github.com/<%= current_setting.github_id %>"><i class="fa fa-github"></i> <%= current_setting.github_id %></a>
         <% end %>
 

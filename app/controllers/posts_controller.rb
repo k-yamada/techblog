@@ -5,7 +5,13 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.order('created_at DESC').page params[:page]
+    if params["keyword"]
+      key = params["keyword"]
+      @posts = Post.where(:$or => [{:title => /#{key}/}, {:body => /#{key}/}])
+    else
+      @posts = Post.where()
+    end
+    @posts = @posts.order('created_at DESC').page params[:page]
     @posts
   end
 
