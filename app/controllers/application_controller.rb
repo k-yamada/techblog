@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user
   helper_method :current_setting
+  before_filter :common_before_filter
+
+  def common_before_filter
+    @title = current_setting.title
+  end
 
   def set_admin_view
     @admin_view = true
