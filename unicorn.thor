@@ -29,9 +29,9 @@ class Unicorn < Thor
   def restart
     if unicorn_pid
       send_signal_to_unicorn(unicorn_pid,     :USR2)
-      sleep 5
-      send_signal_to_unicorn(unicorn_old_pid, :WINCH)
-      send_signal_to_unicorn(unicorn_old_pid, :QUIT)
+      #sleep 5
+      #send_signal_to_unicorn(unicorn_old_pid, :WINCH)
+      #send_signal_to_unicorn(unicorn_old_pid, :QUIT)
     else
       invoke :start
     end
