@@ -22,14 +22,12 @@ class Techblog.Routers.PostsRouter extends Backbone.Router
 
   show: (id) ->
     post = @posts.get(id)
-
     @view = new Techblog.Views.Posts.ShowView(model: post)
     $("#posts").html(@view.render().el)
     TB.Util.setStyle()
 
   edit: (id) ->
     post = @posts.get(id)
-
     @view = new Techblog.Views.Posts.EditView(model: post)
     $("#posts").html(@view.render().el)
 

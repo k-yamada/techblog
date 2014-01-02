@@ -36,7 +36,7 @@
   <meta http-equiv="x-dns-prefetch-control" content="off"/>
   <meta name="keywords" content="kyamada,techblog,rails" />
 
-  <title><%= current_setting.title %></title>
+  <title><% current_setting.title %></title>
 
   <!-- ======== STYLES ======== -->
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
@@ -132,6 +132,8 @@
 
   <!-- ======== SCRIPTS ======== -->
 
+  <!-- hatena -->
+  <script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
   <!-- twitter -->
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
