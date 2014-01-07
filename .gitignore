@@ -17,3 +17,4 @@
 /tmp/pids/*
 !/tmp/pids
 #Gemfile.lock
+.DS_Store
