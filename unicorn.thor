@@ -14,7 +14,7 @@ class Unicorn < Thor
 
   desc "start", 'unicorn start'
   def start
-    ENV['RAILS_ENV'] = "development" unless ENV['RAILS_ENV']
+    ENV['RAILS_ENV'] = "production" unless ENV['RAILS_ENV']
     # see: http://blog.twiwt.org/e/2e6270
     exec_cmd({"BUNDLE_GEMFILE"=>"#{ROOT}/Gemfile"}, "bundle exec unicorn -c config/unicorn.rb -E #{ENV['RAILS_ENV']} -D")
   end
