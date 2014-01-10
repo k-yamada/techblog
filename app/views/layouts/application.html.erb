@@ -119,8 +119,8 @@
               case i
               when 0..4   then css = "tag1"
               when 5..9   then css = "tag2"
-              else
-                css = "tag3"
+              when 10..14 then css = "tag3"
+              else             css = "tag4"
               end
            %>
            <%= link_to "#{tag[0]}(#{tag[1]})", "/posts/tag/#{tag[0]}", :class => css %>
