@@ -13,6 +13,7 @@ Techblog::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'posts#index'
   get "/posts/tag/:tag" => "posts#tag"
+  get "/posts/*sub_id" => "posts#show"
 
   post "/auth/:provider/callback" => "sessions#create"
   get "/signout" => "sessions#destroy", :as => :signout

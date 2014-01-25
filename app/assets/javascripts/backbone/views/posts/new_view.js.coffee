@@ -23,7 +23,8 @@ class Techblog.Views.Posts.NewView extends Backbone.View
     @collection.create(@model.toJSON(),
       success: (post) =>
         @model = post
-        window.location.hash = "/#{@model.get("id")}"
+        # window.location.hash = "/#{@model.get("id")}"
+        window.location = "/posts/#{@model.get("sub_id")}"
 
       error: (post, jqXHR) =>
         @model.set({errors: $.parseJSON(jqXHR.responseText)})

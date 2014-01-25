@@ -4,7 +4,7 @@ class Techblog.Models.Post extends Backbone.Model
   defaults:
     title: null
     body: null
-    page_id: null
+    sub_id: null
     created_at: null
     updated_at: null
     tags: []

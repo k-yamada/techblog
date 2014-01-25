@@ -5,7 +5,7 @@ class Post
 
   key :title, String
   key :body, String
-  key :page_id, String
+  key :sub_id, String, :unique => true, :required => true
   timestamps!
 
   def body_html
@@ -22,5 +22,10 @@ class Post
 
   def created_at_fmt
     created_at.strftime("%e %B %Y")
+  end
+
+  def default_sub_id
+    time = created_at ? created_at : Time.now
+    time.strftime("%Y/%m/%d/%H%M%S")
   end
 end

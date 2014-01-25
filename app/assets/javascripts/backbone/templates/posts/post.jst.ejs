@@ -4,7 +4,8 @@
         <a href="#"><%= created_at_fmt %></a>
     </div> <!-- .date -->
     <div class="tweet share-link clearfix">
-      <a href="http://b.hatena.ne.jp/entry/www.kyamada.com/posts/<%= id %>"
+      <!--<a href="http://b.hatena.ne.jp/entry/www.kyamada.com/posts/<%= id %>"-->
+      <a href="http://b.hatena.ne.jp/entry/www.kyamada.com/posts/<%= created_at_fmt %>"
          class="hatena-bookmark-button"
          data-hatena-bookmark-title="<%= title %>"
          data-hatena-bookmark-layout="standard-balloon"
@@ -24,7 +25,8 @@
   <div class="entry">
     <div class="title">
       <!--<h2><a href="#/<%= id %>"><%= title %></a></h2>-->
-      <h2><a href="/posts/<%= id %>"><%= title %></a></h2>
+      <!--<h2><a href="/posts/<%= id %>"><%= title %></a></h2>-->
+      <h2><a href="/posts/<%= sub_id %>"><%= title %></a></h2>
     </div> <!-- .title -->
 
     <div class="tags">

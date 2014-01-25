@@ -13,8 +13,10 @@ class Techblog.Views.Posts.EditView extends Backbone.View
 
     @model.save(null,
       success : (post) =>
-        @model.fetch().done =>
-          success: window.location.hash = "/#{@model.id}"
+        #@model.fetch().done =>
+        @model.fetch({data: {sub_id: @model.get("sub_id")}}).done =>
+          # success: window.location.hash = "/#{@model.id}"
+          success: window.location = "/posts/#{@model.get("sub_id")}"
     )
 
   showEditor: ->

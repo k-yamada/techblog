@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post_by_sub_id, only: [:show]
+  before_action :set_post, only: [:edit, :update, :destroy]
   before_action :set_tag_cloud, only: [:index, :tag, :show]
 
   # GET /posts
@@ -43,7 +44,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-    @post.page_id = @post._id
+    @post.sub_id = @post.default_sub_id
     respond_to do |format|
       if @post.save
         @post.tag(post_params[:tags], current_user) if post_params[:tags]
@@ -60,7 +61,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1.json
   def update
     @post.delete_all_tags
-    @post.tag(post_params[:tags], current_user)
+    @post.tag(post_params[:tags], current_user) if post_params[:tags]
     respond_to do |format|
       if @post.set(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -86,7 +87,13 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
+      p "====set_post===="
       @post = Post.find(params[:id])
+    end
+
+    def set_post_by_sub_id
+      p "===by_sub_id==="
+      @post = Post.find_by_sub_id(params[:sub_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -94,6 +101,6 @@ class PostsController < ApplicationController
       if params["post"]["tags"].class == Array
         params["post"]["tags"] = params["post"]["tags"].join(',')
       end
-      params.require(:post).permit(:title, :body, :tags)
+      params.require(:post).permit(:sub_id, :title, :body, :tags, :created_at, :updated_at)
     end
 end
