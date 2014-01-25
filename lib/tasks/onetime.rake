@@ -1,5 +1,5 @@
 # Usage
-#   $ RAILS_ENV=production onetime:<task_name>
+#   $ RAILS_ENV=production rake onetime:<task_name>
 
 namespace :onetime do
   desc "set Post.sub_id"
