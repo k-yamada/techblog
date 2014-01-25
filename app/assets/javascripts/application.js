@@ -22,5 +22,6 @@
 //= require google_adsense
 //= require google-code-prettify-rails/prettify
 //= require util
+//= require bootstrap
 
 //= require_tree .

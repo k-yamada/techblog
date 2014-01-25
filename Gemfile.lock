@@ -10,6 +10,13 @@ GIT
       plucky (~> 0.6.5)
 
 GIT
+  remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
+  revision: d3a34e06b37f746c3dd1dc76852a1f7a1ee6755e
+  specs:
+    bootstrap-sass (3.0.3.0)
+      sass (~> 3.2)
+
+GIT
   remote: git://github.com/vmg/redcarpet.git
   revision: 52c5fa3c5753d2125e827f235cdf4cb730484902
   specs:
@@ -189,8 +196,9 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_mongo_taggable
+  bootstrap-sass!
   bson_ext
-  capistrano (~> 3.0)
+  capistrano
   capistrano-rails (~> 1.1.0)
   capistrano-rbenv (~> 2.0)
   coffee-rails (~> 4.0.0)
