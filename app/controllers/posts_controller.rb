@@ -87,12 +87,10 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      p "====set_post===="
       @post = Post.find(params[:id])
     end
 
     def set_post_by_sub_id
-      p "===by_sub_id==="
       @post = Post.find_by_sub_id(params[:sub_id])
     end
 
