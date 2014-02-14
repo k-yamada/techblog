@@ -2,6 +2,10 @@
 
 Blog written in Ruby.
 
+## Demo
+
+http://www.kyamada.com/
+
 ## Architecture
 
 * language     : Ruby2
