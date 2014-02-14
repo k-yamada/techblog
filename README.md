@@ -4,7 +4,7 @@ Blog written in Ruby.
 
 ## Demo
 
-http://www.kyamada.com/
+- http://www.kyamada.com/
 
 ## Architecture
 
@@ -47,9 +47,7 @@ $ bundle exec cap production deploy
 
 * nginx conf sample
 
-~~~
-config/nginx_sample.conf
-~~~
+[config/nginx_sample.conf](https://github.com/k-yamada/techblog/blob/master/config/nginx_sample.conf)
 
 ## Import data from other blog service
 
