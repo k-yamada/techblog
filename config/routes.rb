@@ -18,6 +18,9 @@ Techblog::Application.routes.draw do
   post "/auth/:provider/callback" => "sessions#create"
   get "/signout" => "sessions#destroy", :as => :signout
 
+  # catch all route
+  get '*path', :controller => "posts", :action => "index"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
