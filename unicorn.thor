@@ -37,6 +37,14 @@ class Unicorn < Thor
     end
   end
 
+  desc "force_restart", "force_restart"
+  def force_restart
+    if unicorn_pid
+      send_signal_to_unicorn(unicorn_pid,     :QUIT)
+    end
+    invoke :start
+  end
+
   desc "hup", 'hup'
   def hup
     send_signal_to_unicorn(unicorn_pid, :HUP)
