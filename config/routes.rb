@@ -22,7 +22,7 @@ Techblog::Application.routes.draw do
   get "/tags/:tag" => "posts#tag"
 
   # catch all route
-  get '*path', :controller => "posts", :action => "index"
+  get '*path', :controller => "posts", :action => "route_not_found"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

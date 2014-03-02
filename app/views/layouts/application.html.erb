@@ -79,6 +79,10 @@
   </header>
 
   <div class="container">
+    <% if flash[:error] %>
+      <div class="alert alert-danger"><%= flash[:error] %></div>
+    <% end %>
+
     <div class="row">
       <div class="col-sm-8">
         <%= yield %>

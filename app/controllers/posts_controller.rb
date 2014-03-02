@@ -15,6 +15,11 @@ class PostsController < ApplicationController
     @posts
   end
 
+  def route_not_found
+    flash[:error] = "Route not found"
+    redirect_to action: 'index'
+  end
+
   def tag
     @posts = Post.where_with_tag(params['tag']).order('created_at DESC').page params[:page]
     render :template => "posts/index"
