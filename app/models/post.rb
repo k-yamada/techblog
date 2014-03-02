@@ -8,16 +8,34 @@ class Post
   key :sub_id, String, :unique => true, :required => true
   timestamps!
 
+  attr_accessor :keyword
+
+  def title
+    if @keyword
+      @title.gsub(@keyword, "<em>#{@keyword}</em>")
+    else
+      @title
+    end
+  end
+
   def body_html
     return nil unless @body
-    render   = Redcarpet::Render::HTML.new(:prettify => true)
-    markdown = Redcarpet::Markdown.new(render,
-      :fenced_code_blocks => true,
-      :tables => true,
-      :autolink => true,
-      :strikethrough => true
-    )
-    markdown.render(@body)
+    if @keyword
+      matches = []
+      @body.scan(/.{1,40}#{@keyword}.{1,40}/).each do |match|
+        matches << match.gsub(@keyword, "<em>#{@keyword}</em>")
+      end
+      @body = matches.join("...") + "..."
+    else
+      render   = Redcarpet::Render::HTML.new(:prettify => true)
+      markdown = Redcarpet::Markdown.new(render,
+        :fenced_code_blocks => true,
+        :tables => true,
+        :autolink => true,
+        :strikethrough => true
+      )
+      markdown.render(@body)
+    end
   end
 
   def created_at_fmt
