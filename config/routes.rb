@@ -18,6 +18,9 @@ Techblog::Application.routes.draw do
   post "/auth/:provider/callback" => "sessions#create"
   get "/signout" => "sessions#destroy", :as => :signout
 
+  # Migration from previous versions of the URL
+  get "/tags/:tag" => "posts#tag"
+
   # catch all route
   get '*path', :controller => "posts", :action => "index"
 
