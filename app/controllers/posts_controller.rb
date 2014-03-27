@@ -7,8 +7,8 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     if params["keyword"]
-      @keyword = params["keyword"]
-      @posts = find_by_keyword(params["keyword"])
+      @keywords = params["keyword"].split(" ")
+      @posts = find_by_keywords(@keywords)
     else
       @posts = Post.where().order('created_at DESC').page params[:page]
     end
@@ -106,8 +106,20 @@ class PostsController < ApplicationController
       params.require(:post).permit(:sub_id, :title, :body, :tags, :created_at, :updated_at)
     end
 
-    def find_by_keyword(keyword)
-      posts = Post.where(:$or => [{:title => /#{keyword}/i}, {:body => /#{keyword}/i}])
-      posts.order('created_at DESC').page(params[:page])
+    def create_and_conds(target, keywords)
+      and_conds = []
+      keywords.each do |keyword|
+        and_conds << {target => /#{keyword}/i}
+      end
+      and_conds
+    end
+
+    def find_by_keywords(keywords)
+      search_cond = {:$or => [
+        {:$and => create_and_conds(:title, keywords)},
+        {:$and => create_and_conds(:body,  keywords)}
+      ]}
+      posts = Post.where(search_cond)
+      posts.order('created_at DESC').page(params[:page]).per(100)
     end
 end

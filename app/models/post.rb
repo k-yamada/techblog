@@ -8,24 +8,30 @@ class Post
   key :sub_id, String, :unique => true, :required => true
   timestamps!
 
-  attr_accessor :keyword
+  attr_accessor :keywords
 
   def title
-    if @keyword
-      @title.gsub(@keyword, "<em>#{@keyword}</em>")
+    if @keywords
+      @keywords.each do |keyword|
+        @title.gsub!(keyword, "<em>#{keyword}</em>")
+      end
     else
       @title
     end
+    @title
   end
 
   def body_html
     return nil unless @body
-    if @keyword
-      matches = []
-      @body.scan(/.{1,40}#{@keyword}.{1,40}/).each do |match|
-        matches << match.gsub(@keyword, "<em>#{@keyword}</em>")
+    if @keywords
+      @keywords.each do |keyword|
+        matches = []
+        @body.scan(/.{1,40}#{keyword}.{1,40}/).each do |match|
+          matches << match.gsub(keyword, "<em>#{keyword}</em>")
+        end
+        @body = matches.join("...") + "..."
       end
-      @body = matches.join("...") + "..."
+      return @body
     else
       render   = Redcarpet::Render::HTML.new(:prettify => true)
       markdown = Redcarpet::Markdown.new(render,
