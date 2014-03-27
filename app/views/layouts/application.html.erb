@@ -89,15 +89,9 @@
       </div>
 
       <div class="col-sm-4 sidebar">
+
         <div>
-          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          <ins class="adsbygoogle"
-               style="display:inline-block;width:320px;height:100px"
-               data-ad-client="ca-pub-4800068521558938"
-               data-ad-slot="7481760013"></ins>
-          <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
+          <%= render "shared/ads_google_100_320" %>
         </div>
 
         <h3>Search</h3>
@@ -126,6 +120,13 @@
            <%= link_to "#{tag[0]}", "/posts/tag/#{tag[0]}", :class => css %>
           <% end %>
         </div>
+
+	<br>
+
+        <div>
+          <%= render "shared/ads_google_120_600" %>
+        </div>
+
       </div><!-- sidebar -->
     </div>
   </div>
