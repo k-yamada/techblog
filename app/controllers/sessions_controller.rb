@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       Admin.create({:email => session[:user_info][:email]})
     end
 
-    unless Admin.find_by_email(session[:user_info][:email])
+    unless Admin.find_by(email: session[:user_info][:email])
       session[:user_info] = nil
     end
     redirect_to root_url, :notice => "Signed in!"

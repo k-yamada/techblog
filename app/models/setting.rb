@@ -1,14 +1,15 @@
 class Setting
-  include MongoMapper::Document
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
-  key :title, String
-  key :description, String
-  key :language, String
-  key :ga_tracking_code, String
-  key :github_id, String
+  field :title, type: String
+  field :description, type: String
+  field :language, type: String
+  field :ga_tracking_code, type: String
+  field :github_id, type: String
 
   def self.get_data
-    data = self.find_one
+    data = self.first
     unless data
       data = self.create({
         :title            => "TechBlog",

@@ -1,37 +1,28 @@
 class Post
-  include MongoMapper::Document
-  include ActsAsMongoTaggable
+  include Mongoid::Document
+  include Mongoid::Timestamps
+  include Mongoid::Taggable
   paginates_per 5
 
-  key :title, String
-  key :body, String
-  key :sub_id, String, :unique => true, :required => true
-  timestamps!
+  field :title, type: String
+  field :body, type: String
+  field :sub_id, type: String
+  index({ sub_id: 1 }, { unique: true })
 
   attr_accessor :keywords
 
-  def title
-    if @keywords
-      @keywords.each do |keyword|
-        @title.gsub!(keyword, "<em>#{keyword}</em>")
-      end
-    else
-      @title
-    end
-    @title
-  end
-
-  def body_html
-    return nil unless @body
-    if @keywords
-      @keywords.each do |keyword|
+  def body_html(keywords=nil)
+    return nil unless body
+    if keywords
+      _body = nil
+      keywords.each do |keyword|
         matches = []
-        @body.scan(/.{1,40}#{keyword}.{1,40}/).each do |match|
+        body.scan(/.{1,40}#{keyword}.{1,40}/).each do |match|
           matches << match.gsub(keyword, "<em>#{keyword}</em>")
         end
-        @body = matches.join("...") + "..."
+        _body = matches.join("...") + "..."
       end
-      return @body
+      return _body
     else
       render   = Redcarpet::Render::HTML.new(:prettify => true)
       markdown = Redcarpet::Markdown.new(render,
@@ -40,7 +31,7 @@ class Post
         :autolink => true,
         :strikethrough => true
       )
-      markdown.render(@body)
+      markdown.render(body)
     end
   end
 

@@ -43,14 +43,14 @@ gem 'capistrano-rails', '~> 1.1.0', group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'mongo_mapper', :git => "git://github.com/mongomapper/mongomapper.git", :tag => "v0.13.0.beta2"
+gem 'mongoid', '~> 4.0.0'
 gem 'bson_ext'
 
 gem "rails-backbone"
 
-gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
+gem 'bootstrap-sass'
 
-gem 'redcarpet', github: 'vmg/redcarpet'
+gem 'redcarpet'
 
 gem 'google-code-prettify-rails'
 
@@ -64,6 +64,6 @@ gem 'kaminari'
 
 gem 'thor'
 
-gem 'acts_as_mongo_taggable'
+gem 'mongoid_taggable'
 
 gem 'font-awesome-rails'

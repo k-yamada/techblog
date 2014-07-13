@@ -1,4 +1,11 @@
-<div id="posts"></div>
+<div id="posts">
+  <% @posts.each do |post| %>
+    <%= render "post", :post => post %>
+  <% end %>
+<hr/>
+
+
+</div>
 
 <script type="text/javascript">
   $(function() {
@@ -6,6 +13,7 @@
     posts = <%= raw render :template => 'posts/index.json.jbuilder' %>;
     window.router = new Techblog.Routers.PostsRouter({posts: posts});
     Backbone.history.start();
+    TB.Util.setStyle()
   });
 </script>
 

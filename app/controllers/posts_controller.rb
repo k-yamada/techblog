@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_post_by_sub_id, only: [:show]
-  before_action :set_post, only: [:edit, :update, :destroy]
+  #before_action :set_post_by_sub_id, only: [:show_by_sub_id]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :set_tag_cloud, only: [:index, :tag, :show]
 
   # GET /posts
@@ -10,7 +10,7 @@ class PostsController < ApplicationController
       @keywords = params["keyword"].split(" ")
       @posts = find_by_keywords(@keywords)
     else
-      @posts = Post.where().order('created_at DESC').page params[:page]
+      @posts = Post.order('created_at DESC').page params[:page]
     end
     @posts
   end
@@ -21,18 +21,17 @@ class PostsController < ApplicationController
   end
 
   def tag
-    @posts = Post.where_with_tag(params['tag']).order('created_at DESC').page params[:page]
+    @posts = Post.tagged_with(params['tag']).order('created_at DESC').page params[:page]
     render :template => "posts/index"
   end
 
   def set_tag_cloud
-    @tag_cloud = Post.all_tags_with_counts
+    @tag_cloud = Post.tags_with_weight[0..20]
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @title = @post.title
   end
 
   # GET /posts/new
@@ -51,7 +50,7 @@ class PostsController < ApplicationController
     @post.sub_id = @post.default_sub_id
     respond_to do |format|
       if @post.save
-        @post.tag(post_params[:tags], current_user) if post_params[:tags]
+        # @post.tag(post_params[:tags], current_user) if post_params[:tags]
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: nil }
       else
@@ -64,10 +63,10 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-    @post.delete_all_tags
-    @post.tag(post_params[:tags], current_user) if post_params[:tags]
+    # @post.delete_all_tags
+    # @post.tag(post_params[:tags], current_user) if post_params[:tags]
     respond_to do |format|
-      if @post.set(post_params)
+      if @post.update_attributes(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,7 +79,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    @post.delete_all_tags
+    # @post.delete_all_tags
     @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url }
@@ -91,11 +90,13 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.find(params[:id])
-    end
-
-    def set_post_by_sub_id
-      @post = Post.find_by_sub_id(params[:sub_id])
+      if params[:sub_id]
+        @post = Post.find_by(sub_id: params[:sub_id])
+      else
+        @post = Post.find(params[:id])
+      end
+      p "==set_post=="
+      pp @post.tags
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

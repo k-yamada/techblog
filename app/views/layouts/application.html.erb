@@ -62,7 +62,7 @@
           <ul class="nav navbar-nav navbar-right">
             <% if current_user %>
             <li><a href="/admin">Admin</a></li>
-            <li><a href="#/new">New Entry</a></li>
+            <li><a href="/posts/new">New Entry</a></li>
             <li><a href="#"><%= current_user.name %></a></li>
             <li><%= link_to "Sign Out", signout_path %></li>
             <% else %>
@@ -108,20 +108,20 @@
         <h3>Tag</h3>
         <div id="tag_cloud">
           <%
-            @tag_cloud.each_with_index do |tag, i|
-              css = "tag4"
-              case i
-              when 0..4   then css = "tag1"
-              when 5..9   then css = "tag2"
-              when 10..14 then css = "tag3"
-              else             css = "tag4"
-              end
+             @tag_cloud.each_with_index do |tag, i|
+               css = "tag4"
+               case i
+               when 0..4   then css = "tag1"
+               when 5..9   then css = "tag2"
+               when 10..14 then css = "tag3"
+               else css = "tag4"
+             end
            %>
            <%= link_to "#{tag[0]}", "/posts/tag/#{tag[0]}", :class => css %>
           <% end %>
         </div>
 
-	<br>
+<br>
 
         <div>
           <%= render "shared/ads_google_120_600" %>

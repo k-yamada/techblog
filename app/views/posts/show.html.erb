@@ -1,10 +1,10 @@
-<div id="posts"></div>
+<div id="posts">
+  <%= render "post", :post => @post %>
+</div>
 
 <script type="text/javascript">
   $(function() {
-    posts = [<%= raw render :template => 'posts/show.json.jbuilder' %>];
-    window.router = new Techblog.Routers.PostsRouter({posts: posts});
-    Backbone.history.start();
+    TB.Util.setStyle()
   });
 </script>
 

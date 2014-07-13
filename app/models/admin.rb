@@ -1,6 +1,6 @@
 class Admin
-  include MongoMapper::Document
+  include Mongoid::Document
 
-  key :email, String
+  field :email, type: String
 
 end

@@ -25,10 +25,8 @@ module Techblog
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    config.gem 'acts_as_mongo_taggable'
-
     config.generators do |g|
-      g.orm :mongo_mapper
+      g.orm :mongoid
     end
   end
 end

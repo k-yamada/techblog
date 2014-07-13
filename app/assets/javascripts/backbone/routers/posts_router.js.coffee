@@ -1,7 +1,7 @@
 class Techblog.Routers.PostsRouter extends Backbone.Router
   initialize: (options) ->
-    @posts = new Techblog.Collections.PostsCollection()
-    @posts.reset options.posts
+    @posts = new Techblog.Collections.PostsCollection(options.posts)
+    # @posts.reset options.posts
 
   routes:
     "new"         : "newPost"
