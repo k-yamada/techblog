@@ -21,6 +21,10 @@
     <%= f.text_field :description, :class => "form-control" %>
   </div>
   <div class="form-group field">
+    <%= f.label :about %><br>
+    <%= f.text_area :about, :size => "100x5", :class => "form-control" %>
+  </div>
+  <div class="form-group field">
     <%= f.label :language %><br>
     <%= f.text_field :language, :class => "form-control" %>
   </div>
@@ -29,8 +33,16 @@
     <%= f.text_area :ga_tracking_code, :size => "100x15", :class => "form-control" %>
   </div>
   <div class="form-group field">
-    <%= f.label "github Id" %><br>
+    <%= f.label "github id" %><br>
     <%= f.text_field :github_id, :class => "form-control" %>
+  </div>
+  <div class="form-group field">
+    <%= f.label "twitter id" %><br>
+    <%= f.text_field :twitter_id, :class => "form-control" %>
+  </div>
+  <div class="form-group field">
+    <%= f.label "facebook url" %><br>
+    <%= f.text_field :facebook_url, :class => "form-control" %>
   </div>
   <div class="actions">
     <%= f.submit :class => "btn btn-primary" %>

@@ -19,10 +19,10 @@
   <div class="form-group field" tabindex="1">
     <ul class="nav nav-tabs">
       <li class="active" id="btn_write"><a href="javaScript:void(0)" tabindex="1">Write</a></li>
-      <li id="btn_preview"><a href="javaScript:void(0)" tabindex="1">Preview</a></li>
+      <!--<li id="btn_preview"><a href="javaScript:void(0)" tabindex="1">Preview</a></li>-->
     </ul>
 
-    <%= f.text_area :body, :cols => "50", :rows => "15" %>
+    <%= f.text_area :body, :cols => "50", :rows => "15", :id => "post_body" %>
   </div>
 
   <div class="form-group input-group field">
@@ -31,6 +31,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit :class => "btn btn-primary" %>
+    <%= f.submit "Publish", :class => "btn btn-primary" %>
   </div>
+
 <% end %>

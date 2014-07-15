@@ -4,9 +4,12 @@ class Setting
 
   field :title, type: String
   field :description, type: String
+  field :about, type: String
   field :language, type: String
   field :ga_tracking_code, type: String
   field :github_id, type: String
+  field :twitter_id, type: String
+  field :facebook_url, type: String
 
   def self.get_data
     data = self.first
@@ -17,6 +20,8 @@ class Setting
         :language         => "ja",
         :ga_tracking_code => "",
         :github_id        => "",
+        :twitter_id       => "",
+        :facebook_url     => ""
       })
     end
     data
