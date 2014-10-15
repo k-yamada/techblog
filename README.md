@@ -28,10 +28,17 @@ View at: http://localhost:3000/
 
 ## Deploy to Linux Server (Ubuntu)
 
-* set environments
+* deploy check
 
 ~~~
-$ vim ~/.bashrc
+$ bundle exec cap production deploy:check
+~~~
+
+* set environments variables
+
+~~~
+$ ssh <deploy_server>
+$ vim /var/www/techblog/shared/.env
 
 export TECHBLOG_DEPLOY_USER=<server login user>
 export TECHBLOG_DEPLOY_SERVER=<server ip or domain>

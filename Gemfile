@@ -39,6 +39,10 @@ gem 'unicorn'
 gem 'capistrano', group: :development
 gem 'capistrano-rbenv', '~> 2.0', group: :development
 gem 'capistrano-rails', '~> 1.1.0', group: :development
+group :development do
+  gem 'capistrano3-unicorn', :require => false
+  gem 'capistrano-bundler'
+end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
@@ -51,7 +55,7 @@ gem "rails-backbone"
 gem 'bootstrap-sass'
 
 gem 'redcarpet'
-
+gem 'lodash-rails'
 gem 'google-code-prettify-rails'
 
 gem 'omniauth'
@@ -67,3 +71,7 @@ gem 'thor'
 gem 'mongoid_taggable'
 
 gem 'font-awesome-rails'
+gem "paperclip", "~> 4"
+
+gem 'dotenv'
+gem 'dotenv-deployment', require: 'dotenv/deployment'
