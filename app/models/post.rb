@@ -1,3 +1,5 @@
+require 'nokogiri'
+
 class Post
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -21,15 +23,14 @@ class Post
 
   def body_html_by_keywords(keywords)
     return nil unless body
-    _body = nil
-    keywords.each do |keyword|
-      matches = []
-      body.scan(/.{1,40}#{keyword}.{1,40}/).each do |match|
-        matches << match.gsub(keyword, "<em>#{keyword}</em>")
+    html = get_markdown.render(body)
+    doc = Nokogiri::HTML.parse(html)
+    doc.css('* :not(html) :not(body) :not(pre)').each do |node|
+      keywords.each do |keyword|
+        node.inner_html = node.inner_html.gsub(keyword, "<span class='keyword-match'>#{keyword}</span>")
       end
-      _body = matches.join("...") + "..."
     end
-    _body
+    doc.css("body").to_html
   end
 
   def created_at_fmt

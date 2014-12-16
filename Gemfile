@@ -75,3 +75,4 @@ gem "paperclip", "~> 4"
 
 gem 'dotenv'
 gem 'dotenv-deployment', require: 'dotenv/deployment'
+gem 'nokogiri'
