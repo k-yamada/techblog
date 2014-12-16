@@ -69,6 +69,7 @@ gem 'kaminari'
 gem 'thor'
 
 gem 'mongoid_taggable'
+gem "mongoid-paperclip", :require => "mongoid_paperclip"
 
 gem 'font-awesome-rails'
 gem "paperclip", "~> 4"

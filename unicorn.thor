@@ -16,7 +16,7 @@ class Unicorn < Thor
   def start
     ENV['RAILS_ENV'] = "production" unless ENV['RAILS_ENV']
     # see: http://blog.twiwt.org/e/2e6270
-    exec_cmd({"BUNDLE_GEMFILE"=>"#{ROOT}/Gemfile"}, "bundle exec unicorn -c config/unicorn/#{ENV['RAILS_ENV']} -E #{ENV['RAILS_ENV']} -D")
+    exec_cmd({"BUNDLE_GEMFILE"=>"#{ROOT}/Gemfile"}, "bundle exec unicorn -c config/unicorn/#{ENV['RAILS_ENV']}.rb -E #{ENV['RAILS_ENV']} -D")
   end
 
   desc "stop", 'Graceful shutdown (Send signal QUIT to master process).'

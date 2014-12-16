@@ -99,6 +99,8 @@ GEM
       moped (~> 2.0.0)
       origin (~> 2.1)
       tzinfo (>= 0.3.37)
+    mongoid-paperclip (0.0.9)
+      paperclip (>= 2.3.6)
     mongoid_taggable (1.1.1)
       mongoid (>= 3)
       rake
@@ -220,6 +222,7 @@ DEPENDENCIES
   kaminari
   lodash-rails
   mongoid (~> 4.0.0)
+  mongoid-paperclip
   mongoid_taggable
   nokogiri
   omniauth
