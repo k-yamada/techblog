@@ -25,7 +25,7 @@ class Post
     return nil unless body
     html = get_markdown.render(body)
     doc = Nokogiri::HTML.parse(html)
-    doc.css('* :not(html) :not(body) :not(pre)').each do |node|
+    doc.css('* :not(html) :not(body)').each do |node|
       keywords.each do |keyword|
         node.inner_html = node.inner_html.gsub(keyword, "<span class='keyword-match'>#{keyword}</span>")
       end
