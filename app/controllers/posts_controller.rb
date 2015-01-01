@@ -32,6 +32,18 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    session[:recent_shows] ||= []
+    post_hash = {:title => @post.title, :id => @post.id.to_s}
+
+    unless session[:recent_shows].include?(post_hash)
+      session[:recent_shows].push(post_hash)
+    end
+
+    if session[:recent_shows].length > 3
+      # 末尾3つを残す
+      length = session[:recent_shows].length
+      session[:recent_shows] = session[:recent_shows][length-3..-1]
+    end
   end
 
   # GET /posts/new
@@ -95,8 +107,6 @@ class PostsController < ApplicationController
       else
         @post = Post.find(params[:id])
       end
-      p "==set_post=="
-      pp @post.tags
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

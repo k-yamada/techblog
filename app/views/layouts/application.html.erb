@@ -87,6 +87,15 @@
             </div>
           <% end %>
 
+          <% if session[:recent_shows] %>
+          <div class="sidebar-module">
+            <h4>Recent shows</h4>
+            <% session[:recent_shows].each do |post| %>
+            <p><%= link_to post[:title], "/posts/#{post[:id]}" %></p>
+            <% end %>
+          </div>
+          <% end %>
+　
           <div class="sidebar-module">
             <h4>Tag</h4>
             <div id="tag_cloud">
