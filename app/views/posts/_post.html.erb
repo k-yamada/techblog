@@ -34,7 +34,6 @@
   <div class="body">
     <% if @keywords %>
       <%= post.body_html_by_keywords(@keywords).html_safe %>
-      <%= link_to 'Read the rest', post_path(post) %>
     <% else %>
       <%= post.body_html.html_safe %>
     <% end %>
